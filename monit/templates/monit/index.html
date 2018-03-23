@@ -1,0 +1,319 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Patient Monitor</title>
+    <!-- Meta -->
+    <meta http-equiv="refresh" content="30"> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive HTML5 Website landing Page for Developers">
+    <meta name="author" content="3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/font-awesome/css/font-awesome.css' %}">
+    <!-- github acitivity css -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
+
+<body>
+    <!-- ******HEADER****** --> 
+    <header class="header">
+        <div class="container">                       
+            <img class="profile-image img-responsive pull-left" src="{% static 'assets/images/heart.jpg' %}" alt="Swatchbarath" width="210" height="210"/>
+            <div class="profile-content pull-left">
+                <h1 class="name">Patient Monitor</h1>
+                <h2 class="desc">Inspired by Internet of Things</h2>   
+                <ul class="social list-inline">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>                   
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-github-alt"></i></a></li>                  
+                    <li class="last-item"><a href="#"><i class="fa fa-hacker-news"></i></a></li>   
+                </ul> 
+            </div><!--//profile-->
+            <img class="profile-image img-responsive pull-right" src="{% static 'assets/images/doctor.jpg' %}" alt="Doctor" width="150" height="150"/>             
+        </div><!--//container-->
+    </header><!--//header-->    
+    <div class="container sections-wrapper">
+        <div class="row">
+            <div class="primary col-md-8 col-sm-12 col-xs-12">
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">About Us</h2>
+                        <div class="content">
+                            <p>Patient Monitor is a new approch to bring patient and doctors into new cutting edge technologies. In this project we are showing simple internet of things application to monitor patient heartrate, temperature and humidity. Based on the threshold doctors can alert nurses who are taking care of patient.</p> 
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+    
+               <section class="latest section">
+                    <div class="section-inner">
+                        <h2 class="heading">IOT Applications:</h2>
+                        <div class="content">                       
+                            <div class="item featured text-center">
+                                <h3 class="title"><a href="https://wrapbootstrap.com/theme/delta-promote-mobile-app-effectively-WB09R23P8?ref=3wm" target="_blank">Live Patient Data</a></h3>
+                                <p class="summary"> From sagara,Western ghats,karnataka </p>
+                                <div class="alert alert-danger">Heartbeat: <strong>{{Data.Log.dbHeartb}}</strong> BPM</div>
+                                <div class="alert alert-info">Temperature: <strong>{{Data.Log.dbTemp}}</strong> degC</div>
+                                <div class="alert alert-success">Humidity: <strong>{{Data.Log.dbHumid}}</strong> %</div>
+                                
+                                <p>Heartbeat Max Value: <strong>{{Data.Set.dbHeartbLimitMax}}</strong></p>
+                               
+                                <div class="input-group">
+                                    <textarea class="form-control custom-control" rows="3" style="resize:none"id="hmax_text" name="hmax_text"></textarea>     
+                                    <span class="input-group-addon"><button id="hmax_button" class="btn btn-info">Send</button></span>
+                                </div>
+                                <div class="desc text-left">                                    
+                                    <p>In above text are you can write heartbeat max value.</p>
+                                </div><!--//desc-->   
+
+                                <p>Heartbeat Min Value: <strong>{{Data.Set.dbHeartbLimitMin}}</strong></p>
+                               
+                                <div class="input-group">
+                                    <textarea class="form-control custom-control" rows="3" style="resize:none"id="hmin_text" name="hmin_text"></textarea>     
+                                    <span class="input-group-addon"><button id="hmin_button" class="btn btn-info">Send</button></span>
+                                </div>
+                                <div class="desc text-left">                                    
+                                    <p>In above text are you can write heartbeat min value.</p>
+                                </div><!--//desc-->   
+
+
+                                <p>Temperature Max Value<strong>{{Data.Set.dbTempLimit}}</strong></p>
+                               
+                                <div class="input-group">
+                                    <textarea class="form-control custom-control" rows="3" style="resize:none"id="temp_text" name="temp_text"></textarea>     
+                                    <span class="input-group-addon"><button id="temp_button" class="btn btn-info">Send</button></span>
+                                </div>   
+
+                                <div class="desc text-left">                                    
+                                    <p>In above text are you can write temperature max value.</p>
+                                </div><!--//desc-->   
+
+
+                                <p>Humidity Max Value   <strong>{{Data.Set.dbHumidLimit}}</strong></p>
+                               
+                                <div class="input-group">
+                                    <textarea class="form-control custom-control" rows="3" style="resize:none"id="hum_text" name="hum_text"></textarea>     
+                                    <span class="input-group-addon"><button id="hum_button" class="btn btn-info">Send</button></span>
+                                </div>   
+
+
+                                <div class="desc text-left">                                    
+                                    <p>In above text are you can write humidity max value.</p>
+                                </div><!--//desc-->         
+                                               
+                            </div><!--//item-->
+                           
+                            
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+            
+            </div><!--//primary-->
+            <div class="secondary col-md-4 col-sm-12 col-xs-12">
+                 <aside class="info aside section">
+                    <div class="section-inner">
+                        <h2 class="heading sr-only">Basic Information</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>Chamarajanagar, IN</li>
+                                <li><i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span><a href="#">servermonit2017@gmail.com</a></li>
+                                <li><i class="fa fa-link"></i><span class="sr-only">Website:</span><a href="http://www.gec-chamarajanagara.ac.in/">www.gec-chamarajanagara.ac.in/</a></li>
+                            </ul>
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </aside><!--//aside-->
+                
+                
+                
+                <aside class="testimonials aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Testimonials</h2>
+                        <div class="content">
+                            <div class="item">
+                                <blockquote class="quote">                                  
+                                    <p><i class="fa fa-quote-left"></i>Happy with these students for their new possible way of thinking to bring villages in to main stream, whishing these young talented students for their future.</p>
+                                </blockquote>                
+                                <p class="source"><span class="name">HOD CSE</span><br /><span class="title">GEC, Chamarajanagar</span></p>                                                             
+                            </div><!--//item-->
+                            
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                
+                <aside class="education aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Education</h2>
+                        <div class="content">
+                            <div class="item">                      
+                                <h3 class="title"><i class="fa fa-graduation-cap"></i> Bachelor of Engineering</h3>
+                                <h4 class="university">VTU, Karnataka <span class="year">(2013-2017)</span></h4>
+                            </div><!--//item-->
+                            
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                            
+                <aside class="languages aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Languages</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li class="item">
+                                    <span class="title"><strong>Python:</strong></span>
+                                    <span class="level">Backend development <br class="visible-xs"/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                </li><!--//item-->
+                                <li class="item">
+                                    <span class="title"><strong>Bootstrap:</strong></span>
+                                    <span class="level">Frontend development<br class="visible-sm visible-xs"/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                </li><!--//item-->
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                
+                <aside class="blog aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Hardware</h2>
+                        <p>Used Raspberrypi for collecting data <a href="https://www.raspberrypi.org/" target="_blank">click here</a> to get more information about raspberrypi.</p>
+                        <div id="rss-feeds" class="content">
+
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                
+                <aside class="list music aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Team Members</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-user"></i> <a href="#">Yogesh M Iggalore</a></li>
+                                <li><i class="fa fa-user"></i> <a href="#">Yogesh M Iggalore</a></li>
+                                <li><i class="fa fa-user"></i> <a href="#">Yogesh M Iggalore</a></li>
+                                <li><i class="fa fa-user"></i> <a href="#">Yogesh M Iggalore</a></li>
+                                <li><i class="fa fa-user"></i> <a href="#">Yogesh M Iggalore</a></li>
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                
+                
+            </div><!--//secondary-->    
+        </div><!--//row-->
+    </div><!--//masonry-->
+    
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+                <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="#" target="_blank">Us </a> for New India</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+ 
+    <!-- Javascript -->          
+    <!--<script type="text/javascript" src="{% static 'assets/plugins/jquery-1.11.1.min.js' %}"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'assets/plugins/jquery-rss/dist/jquery.rss.min.js' %}"></script> 
+    <!-- github activity plugin -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.js"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>            
+</body>
+</html> 
+<script type="text/javascript">
+
+    var csrftoken = $.cookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    // hmax_button..........
+    $('#hmax_button').on('click',function(){
+        var inputdata = $('#hmax_text').val();
+        console.log("test")
+        console.log(inputdata)
+        ajax_post(1,inputdata,0,0,0);
+    });
+                            
+    // hmin_button post function.........
+    $('#hmin_button').on('click',function(){
+        var inputdata = $('#hmin_text').val();
+        ajax_post(2,0,inputdata,0,0);
+    });
+                                                
+    // temp_button post function.........
+    $('#temp_button').on('click',function(){
+        var inputdata = $('#temp_text').val();
+        ajax_post(3,0,0,inputdata,0);
+    });
+    
+    // hum_button post function.........
+    $('#hum_button').on('click',function(){
+        var inputdata = $('#hum_text').val();
+        ajax_post(4,0,0,0,inputdata);
+    });
+
+    function ajax_post(code=0,hmax=0,hmin=0,tem=0,hum=0){
+        var url = ''; //type your url here..........
+        var type = 'POST';
+        var data = {
+            code : code,
+            hmax : hmax,
+            hmin : hmin,
+            tem  : tem,
+            hum  : hum,
+        };
+        console.log(data)                                                                                                                                            
+        $.ajax({
+            url: url,
+            type: type,
+            data: data,
+            success: function(response) {
+                console.log(response);
+                //alert('success');
+                //setTimeout(function(){ajax_post();}, 10000);
+                if(!alert(response.msg)){window.location.reload();}
+            },
+            error: function(jqXHR, exception, response) {
+                console.log('Error');
+                console.log(exception+response);
+                if(!alert('failure')){window.location.reload();}
+            }
+            
+            //window.location.reload();
+        });
+    }
+</script>
